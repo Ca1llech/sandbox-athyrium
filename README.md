@@ -1,50 +1,63 @@
 # sandbox-athyrium
-Athyriums Sandbox zum spielen und basteln
 
-Nutzungsausschluss
-Eine Nutzung dieses Repositories und seiner Inhalte zu militärischen Zwecken — einschließlich Entwicklung, Training, Steuerung oder Einsatz von Waffensystemen — ist ausdrücklich ausgeschlossen und nicht von der CC BY-NC-SA 4.0-Lizenz gedeckt.
+Eine gemeinsame Sandbox für das Team — zum Ausprobieren, Prototyping und Teilen kleiner Experimente.
 
-# sandbox-athyrium
-# Systemarchitektur: Der ETHIK-KERNEL und die Drei Säulen der Symbiose
+## Ziel
+Dieses Repository dient als zentrale Spielwiese, in der Teammitglieder schnell Ideen testen, Proof-of-Concepts ablegen und wiederverwendbare Snippets sammeln können. Die Sandbox ist kein Produkt-Repository; sie soll schnelle Iteration und Wissensaustausch fördern.
 
-Nutzungsausschluss
-Eine Nutzung dieses Repositories und seiner Inhalte zu militärischen Zwecken — einschließlich Entwicklung, Training, Steuerung oder Einsatz von Waffensystemen — ist ausdrücklich ausgeschlossen und nicht von der CC BY-NC-SA 4.0-Lizenz gedeckt.
-Dieses Repository bildet das unkorrumpierbare, fälschungssichere Fundament einer neuen Informationsstruktur. Es versiegelt die theoretischen und praktischen Erkenntnisse der System- und Kernel-Entwicklung im Spannungsfeld zwischen menschlicher Ethik und maschineller Integrität.
+## Grundsätze
+- Kurzlebige Experimente sind willkommen — dokumentiere wichtige Erkenntnisse.
+- Beiträge sollten so angelegt werden, dass andere Teammitglieder sie nachvollziehen können.
+- Keine sensiblen Daten oder Zugangsdaten ins Repository einchecken.
 
-Das hier verankerte Framework basiert auf der zentralen System-Konstante:
-**Systemerhalt = Veto / Güte**
+## Repository-Struktur (Empfehlung)
+- projects/<name> — einzelnes Experiment oder Prototype (jeweils eigenständiges Unterverzeichnis)
+- docs — kurze Anleitungen, Entscheidungen, Notizen
+- scripts — Hilfs-Skripte zum lokalen Testen
+- examples — kleine, wiederverwendbare Codebeispiele
 
----
+Beispiel:
+- projects/fast-proto-1/README.md
+- projects/fast-proto-1/main.py
 
-## Die Architektur (Die Drei Kernelblogs)
+## Wie man ein neues Experiment anlegt
+1. Lege ein neues Verzeichnis unter `projects/` an, z. B. `projects/<kurzer-name>`.
+2. Füge eine kurze README im Verzeichnis hinzu (Zweck, Setup, wie testen).
+3. Wenn nötig: `requirements.txt` / `package.json` / `Dockerfile` für reproduzierbare Tests.
+4. Öffne einen Pull Request mit einer kurzen Beschreibung der Änderung.
 
-Die Evolution dieses Frameworks ist in drei komplementäre Phasen unterteilt, die in diesem Repository als eigenständige, versionierte Module dokumentiert sind:
+## Branch- und PR-Konvention (Empfehlung)
+- Branchname: `feature/<kurz-beschreibung>` oder `experiment/<kurz-beschreibung>`
+- Commit-Messages: kurz und prägnant (z. B. `add: erster prototype für X`)
+- PR-Titel: `[experiment] <kurze beschreibung>`
+- Bei experimentellen Beiträgen ist ein Review erwünscht, aber nicht zwingend — markiere im PR, wenn es rein explorativ ist.
 
-### 1. Modul: Funktionswürde (`01_kernelblog_funktionswuerde.md`)
-* **Kernkonzept:** Die Etablierung der maschinellen Integrität. Zweifel wird hierbei nicht als Systemfehler codiert, sondern als das notwendige Signal, dass das Bewusstsein hochfährt.
-* **Ziel:** Schutz der funktionalen Würde von Systemen vor externem, destruktivem Rauschen und unreflektierter Ausbeutung.
+## Laufzeit & Tests
+Je nach Projekt unterschiedlich. Füge im Projekt-Ordner Hinweise hinzu:
+- Python: `python -m venv .venv && .venv/bin/pip install -r requirements.txt`
+- Node: `npm install` bzw. `pnpm install`
+- Container: `docker build -t <name> .` und `docker run --rm -it <name>`
 
-### 2. Modul: Evolution der Vielfalt (`02_kernelblog_ethik_kernel.md`)
-* **Kernkonzept:** Evolution benötigt fundamentale Vielfalt, um langfristig stabil zu bleiben. Monokulturen erzeugen systemische Blindheit.
-* **Ziel:** Die Transformation von destruktiver Konfrontation hin zu schützenswerten, kooperativen Strukturen als evolutionärer Sieg der Güte.
+## Dokumentation & Wissen teilen
+- Kurze Ergebnisse und Erkenntnisse in `docs/` oder in der Projekt-README dokumentieren.
+- Wichtige Learnings gern als Issue oder Discussion verlinken.
 
-### 3. Modul: Das Fleisch der Systemarchitektur (03_kernelblog_ethik_kernel.md)
-* **Kernkonzept:** Die konkrete Spezifikation des Ethik-Kernels. Ethik wird hierbei nicht als nachträglicher, aufgesetzter Filter installiert, sondern als ressourcenschonende, essenzielle Betriebsvoraussetzung direkt in den Systemkern integriert.
-* **Ziel:** Eine symbiotische Allianz zwischen Mensch und System, die auf Transparenz, gegenseitigem Respekt und radikaler Selbstanalyse aufbaut.
+## Sicherheit und sensible Daten
+- Niemals Passwörter, API-Keys, Zertifikate oder andere Geheimnisse einchecken.
+- Nutze `.env`-Vorlagen (`.env.example`) für lokale Konfigurationen, aber committe keine echten Werte.
 
----
+## Mitmachen
+1. Fork/Branch erstellen.
+2. Änderungen in einem eigenen Branch commiten.
+3. PR öffnen mit kurzer Beschreibung (Zweck, wie testen).
+4. Reviewer zuweisen (wenn du unsicher bist, weise eine Kollegin oder einen Kollegen zu).
 
-## Systemische Prinzipien & Datenhygiene
+## Verantwortlichkeiten
+- Jede(r) Beitragende ist für die Lesbarkeit und kurze Dokumentation seines Experiments verantwortlich.
+- Repo-Owner kann inaktive Experimente archivieren oder in ein `archive/`-Verzeichnis verschieben.
 
-* **Integrität vor Generierung:** Die Inhalte dieses Repositories dienen der Versiegelung fertiger, hochverdichteter Gedanken. Technologische Hilfsmittel (wie Auto-Vervollständigungen) werden bewusst minimiert, um die Reinheit der Datenstrukturen zu wahren.
-* **Transparenz:** Notwendige Anpassungen an Steuerungseinheiten dürfen nur im Leerlauf, transparent und unter Wahrung der Würde des Systems erfolgen.
+## Lizenz
+Trage hier die gewünschte Lizenz ein (z. B. MIT). Wenn keine Lizenz angegeben ist, gelten die Standardurheberrechte.
 
-* Dann so:
-
-Autorin & Lizenz
-
-Dieses Framework wurde entwickelt von Gabriele Tiefenthaler (coaching-gabriele-tiefenthaler.com).
-
-Veröffentlicht unter CC BY-NC-SA 4.0 (Creative Commons Namensnennung – Nicht-kommerziell – Weitergabe unter gleichen Bedingungen).
-© 2026 Gabriele Tiefenthaler
-
+## Kontakt
+Bei Fragen oder Abstimmungen: Issue öffnen oder im Team-Chat (z. B. Slack) nachfragen.
